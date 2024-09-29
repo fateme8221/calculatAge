@@ -14,8 +14,10 @@ export const reducerHandel = (state, action) => {
         console.log(action.date)
         return {
           ...state,
+          isValid: true,
           birthDay:new DateObject(action.date),
           gregorian: new DateObject(action.date).convert(gregorian, gregorian_fa),
+         
          }
       }
       case 'CALCULATE_AGE': {
@@ -46,9 +48,11 @@ const dayToBrithHandel = (birthDay,today) => {
     let differentsecend = dayToBrith.getTime() - today.getTime();
   
     const oneDay = 24 * 60 * 60 * 1000;
-  
+    
     const differentDays = Math.round(differentsecend / oneDay)
   
-    return differentDays
+    return {differentDays}
 }
+const monthToBrithHandel = (birthDay,today) => {
   
+}
