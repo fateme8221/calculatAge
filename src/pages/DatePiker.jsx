@@ -44,8 +44,8 @@ export default function DatePikerComponent() {
            calendarPosition="bottom-center"
            onChange={(date)=>dispatch({type: 'CHANGE',date} )}
           />
-          <button data-hs-overlay="#hs-scale-animation-modal"
-            className=" item-center font-danaDemiBold text-sm lg:text-base bg-gradient-to-r text-white from-blue-600 to-blue-700 hover:bg-blue-800 w-52 md:w-64 h-12 rounded-2xl" 
+          <button
+            className=" item-center font-danaDemiBold text-sm lg:text-base bg-gradient-to-r text-white from-blue-600 to-blue-700 hover:bg-blue-800 hover:-translate-y-1 w-52 md:w-64 h-12 rounded-2xl transition-all" 
             onClick={() => {
               setIsShow(true)
               return dispatch({type: 'CALCULATE_AGE'})
