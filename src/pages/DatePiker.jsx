@@ -1,5 +1,6 @@
-import React, {useReducer, useEffect, useTransition, useState } from "react";
+import React, {useReducer, useEffect, useState } from "react";
 import DatePicker from "react-multi-date-picker";
+import transition from "react-element-popper/animations/transition"
 
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
@@ -36,8 +37,9 @@ export default function DatePikerComponent() {
       <div data-aos="flip-left" className="bg-white shadow-normal rounded-2xl p-14  mt-32 w-80 md:w-[40rem] lg:w-[50rem] ">
         <h1 className="font-danaDemiBold text-lg lg:text-2xl text-gray-800 mb-8">محاسبه سن و تاریخ تولد</h1>
         <div className=" flex flex-col  items-center justify-center gap-5">
-           <DatePicker
-           inputClass="bg-gray-100 text-gray-800 w-52 md:w-64 h-12 border-none rounded-2xl p-4"
+          <DatePicker
+           animations={[transition()]} 
+           inputClass="bg-gray-100 text-gray-800 w-52 md:w-64 h-12 border-none rounded-2xl p-4 "
            value={state.date}
            calendar={persian}
            locale={persian_fa}
@@ -45,7 +47,7 @@ export default function DatePikerComponent() {
            onChange={(date)=>dispatch({type: 'CHANGE',date} )}
           />
           <button
-            className=" item-center font-danaDemiBold text-sm lg:text-base bg-gradient-to-r text-white from-blue-600 to-blue-700 hover:bg-blue-800 hover:-translate-y-1 w-52 md:w-64 h-12 rounded-2xl transition-all" 
+            className=" item-center font-danaDemiBold text-sm lg:text-base bg-gradient-to-r text-white from-blue-500 to-blue-700 hover:bg-blue-800 hover:-translate-y-1 w-52 md:w-64 h-12 rounded-2xl transition-all duration-300" 
             onClick={() => {
               setIsShow(true)
               return dispatch({type: 'CALCULATE_AGE'})
@@ -55,8 +57,8 @@ export default function DatePikerComponent() {
       
       </div >
 
-      <div  dir="rtl" className={`w-80 md:w-[40rem] lg:w-[50rem] bg-gray-100 p-14 shadow-normal rounded-2xl transition-opacity
-         ${!isshow ? 'opacity-0' : 'opacity-100'}`}>
+      <div  dir="rtl" className={`w-80 md:w-[40rem] lg:w-[50rem] bg-gray-100 p-14 shadow-normal rounded-2xl transition-all duration-500
+         ${!isshow ? 'hidden ' : 'block'}`}>
         <div className="font-danaDemiBold text-lg lg:text-3xl text-blue-900 flex items-center justify-center gap-2.5">
           <span> {state.userAge.years} سال</span>
            <span> {state.userAge.months} ماه</span>
