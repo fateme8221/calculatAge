@@ -33,11 +33,11 @@ export default function DatePikerComponent() {
   
   return (
     <div className="container">
-      <div data-aos="flip-left" className="bg-white shadow-normal rounded-2xl p-14  mt-32 w-[50rem] ">
-        <h1 className="font-danaDemiBold text-2xl text-gray-800 mb-8">محاسبه سن و تاریخ تولد</h1>
-        <div className=" flex flex-col items-center justify-center gap-5">
+      <div data-aos="flip-left" className="bg-white shadow-normal rounded-2xl p-14  mt-32 w-80 md:w-[40rem] lg:w-[50rem] ">
+        <h1 className="font-danaDemiBold text-lg lg:text-2xl text-gray-800 mb-8">محاسبه سن و تاریخ تولد</h1>
+        <div className=" flex flex-col  items-center justify-center gap-5">
            <DatePicker
-           inputClass="bg-gray-100 text-gray-800 w-56 h-12 border-none rounded-2xl p-4"
+           inputClass="bg-gray-100 text-gray-800 w-52 md:w-64 h-12 border-none rounded-2xl p-4"
            value={state.date}
            calendar={persian}
            locale={persian_fa}
@@ -45,7 +45,7 @@ export default function DatePikerComponent() {
            onChange={(date)=>dispatch({type: 'CHANGE',date} )}
           />
           <button data-hs-overlay="#hs-scale-animation-modal"
-            className=" item-center font-danaDemiBold text-xs  lg:text-base bg-gradient-to-r text-white from-blue-600 to-blue-700 hover:bg-blue-800 w-56 h-12 rounded-2xl" 
+            className=" item-center font-danaDemiBold text-sm lg:text-base bg-gradient-to-r text-white from-blue-600 to-blue-700 hover:bg-blue-800 w-52 md:w-64 h-12 rounded-2xl" 
             onClick={() => {
               setIsShow(true)
               return dispatch({type: 'CALCULATE_AGE'})
@@ -55,9 +55,9 @@ export default function DatePikerComponent() {
       
       </div >
 
-      <div  dir="rtl" className={`w-[50rem] bg-gray-100 p-14 shadow-normal rounded-2xl transition-opacity
+      <div  dir="rtl" className={`w-80 md:w-[40rem] lg:w-[50rem] bg-gray-100 p-14 shadow-normal rounded-2xl transition-opacity
          ${!isshow ? 'opacity-0' : 'opacity-100'}`}>
-        <div className="font-danaDemiBold text-3xl text-blue-900 flex items-center justify-center gap-2.5">
+        <div className="font-danaDemiBold text-lg lg:text-3xl text-blue-900 flex items-center justify-center gap-2.5">
           <span> {state.userAge.years} سال</span>
            <span> {state.userAge.months} ماه</span>
            <span> {state.userAge.days} روز</span>
@@ -66,14 +66,14 @@ export default function DatePikerComponent() {
            <span> {state.userAge.seconds} ثانیه</span>
         </div>
         <div className="font-danaDemiBold flex flex-col gap-2.5 mt-6">
-          <span className="text-blue-900 text-lg">تاریخ تولد </span>
-          <div className="text-gray-800 flex  items-center justify-center gap-2.5">
+          <span className="text-blue-900 text-sm lg:text-lg">تاریخ تولد </span>
+          <div className="text-gray-800 text-xs lg:text-base flex  items-center justify-center gap-2.5">
            <span>{state.birthDay.year}</span>
            <span>{state.birthDay.month?.name}</span>
            <span>{state.birthDay.month?.number}</span>
            <span>{state.birthDay.weekDay?.name}</span>
           </div>
-          <div className="text-gray-800 flex items-center justify-center gap-2.5">
+          <div className="text-gray-800 text-xs lg:text-base flex items-center justify-center gap-2.5">
            <span>{state.gregorian.year}</span>
            <span>{state.gregorian.month?.name}</span>
            <span>{state.gregorian.month?.number}</span>
@@ -82,8 +82,8 @@ export default function DatePikerComponent() {
         </div>
         <div>
           <div className="font-danaDemiBold flex flex-col gap-2.5 mt-6">
-            <span className="text-blue-900 text-lg">مانده تا تولد</span>
-            <span className="text-gray-800">{state.dayToBrith}</span>
+            <span className="text-blue-900 text-sm lg:text-lg">مانده تا تولد</span>
+            <span className="text-gray-800 text-xs lg:text-base">{state.dayToBrith}</span>
           </div>
       </div>
       </div>
