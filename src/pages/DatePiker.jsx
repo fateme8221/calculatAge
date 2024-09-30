@@ -9,8 +9,7 @@ import DayToBrithCom from "../components/DayToBrithCom/DayToBrithCom";
 
 import BrithDatePersian from "../components/BrithDate/BrithDatePersian";
 import BrithDategregorian from "../components/BrithDate/BrithDategregorian";
-
-let weekday =['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday']
+import DatePassCom from "../components/DatePassCom/DatePassCom";
 
 export default function DatePikerComponent() {
   const [isshow ,setIsShow] = useState(false)
@@ -72,14 +71,7 @@ export default function DatePikerComponent() {
 
       <div  dir="rtl" className={`w-80 md:w-[45rem] lg:w-[50rem] bg-gray-100 p-14 shadow-normal rounded-2xl    transition-all duration-500 
          ${!isshow ? 'hidden ' : 'block'}`}>
-        <div className="font-danaDemiBold text-lg lg:text-3xl text-blue-900 flex items-center justify-center gap-2.5">
-          <span> {state.userAge.years} سال</span>
-           <span> {state.userAge.months} ماه</span>
-           <span> {state.userAge.days} روز</span>
-           <span> {state.userAge.hours} ساعت</span>
-           <span> {state.userAge.minutes} دقیقه</span>
-           <span> {state.userAge.seconds} ثانیه</span>
-        </div>
+        <DatePassCom userAge={state.userAge}/>
         <div className="font-danaDemiBold flex flex-col gap-2.5 mt-6">
           <span className="text-blue-900 text-sm lg:text-lg">تاریخ تولد </span>
           <BrithDatePersian birthDay={state.birthDay} />
