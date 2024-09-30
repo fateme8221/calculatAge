@@ -8,9 +8,9 @@ import "aos/dist/aos.css";
 function App() {
   Aos.init();
   return (
-    <>
+    <div >
       <DatePikerComponent/>
-    </>
+    </div>
   )
 }
 

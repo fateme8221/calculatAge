@@ -9,6 +9,9 @@ export default {
       boxShadow: {
         "normal": " 0px 1px 10px 0px rgba(0, 0, 0, 0.05)"
       },
+      backgroundImage: {
+        'bg': "url(../images/img4.jpg)",
+      },
       container: {
         center: true,
         'padding': {

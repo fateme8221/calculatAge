@@ -22,6 +22,9 @@
  }
 }
 @layer utilities{
+  body{
+    @apply bg-blue-950
+  }
   .rmdp-input{
     @apply bg-gray-100 text-gray-800 w-56 h-28 border-none
   } 
