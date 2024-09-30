@@ -7,6 +7,9 @@ import persian_fa from "react-date-object/locales/persian_fa"
 import { reducerHandel } from "../components/reducer/calculteAge";
 import DayToBrithCom from "../components/DayToBrithCom/DayToBrithCom";
 
+import BrithDatePersian from "../components/BrithDate/BrithDatePersian";
+import BrithDategregorian from "../components/BrithDate/BrithDategregorian";
+
 let weekday =['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday']
 
 export default function DatePikerComponent() {
@@ -79,22 +82,12 @@ export default function DatePikerComponent() {
         </div>
         <div className="font-danaDemiBold flex flex-col gap-2.5 mt-6">
           <span className="text-blue-900 text-sm lg:text-lg">تاریخ تولد </span>
-          <div className="text-gray-800 text-xs lg:text-base flex  items-center justify-center gap-2.5">
-           <span>{state.birthDay.year}</span>
-           <span>{state.birthDay.month?.name}</span>
-           <span>{state.birthDay.month?.number}</span>
-           <span>{state.birthDay.weekDay?.name}</span>
-          </div>
-          <div className="text-gray-800 text-xs lg:text-base flex items-center justify-center gap-2.5">
-           <span>{state.gregorian.year}</span>
-           <span>{state.gregorian.month?.name}</span>
-           <span>{state.gregorian.month?.number}</span>
-           <span>{weekday[state.gregorian.weekDay?.number]}</span>
-          </div>
+          <BrithDatePersian birthDay={state.birthDay} />
+          <BrithDategregorian gregorian={state.gregorian}/>
         </div>
         <div>
           <DayToBrithCom dayToBrith={state.dayToBrith} />
-      </div>
+        </div>
       </div>
     </div>
  

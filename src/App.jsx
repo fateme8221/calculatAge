@@ -1,5 +1,3 @@
-
-import { useEffect } from 'react'
 import './App.css'
 import DatePikerComponent from './pages/DatePiker'
 import Aos from 'aos';
