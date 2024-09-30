@@ -7,7 +7,7 @@ function BrithDategregorian({gregorian}) {
             <span className='text-pink-700'>/</span>
             <span>{gregorian.month?.number}</span>
             <span className='text-pink-700'>/</span>
-            <span>{gregorian.year}</span>
+            <span>{gregorian.year + 1}</span>
           </div>
   )
 }

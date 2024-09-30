@@ -7,7 +7,7 @@ function BrithDatePersian({birthDay}) {
         <span className='text-pink-700'>/</span>
         <span>{birthDay.month?.number}</span>
         <span className='text-pink-700'>/</span>
-        <span>{birthDay.year}</span>
+        <span>{birthDay.year + 1}</span>
      </div>
   )
 }

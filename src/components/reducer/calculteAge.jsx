@@ -8,16 +8,16 @@ import { DateObject } from "react-multi-date-picker";
 export const reducerHandel = (state, action) => {
     switch (action.type) {
       case 'CHANGE': {
+        console.log(new Date(action.date) );     
         return {
           ...state,
-          isValid: true,
           birthDay:new DateObject(action.date),
           gregorian: new DateObject(action.date).convert(gregorian, gregorian_fa),
          }
       }
       case 'CALCULATE_AGE': {
         let dateofbirth = moment(new Date(state.birthDay));
-        let todaysdate = moment(state.today);
+        let todaysdate = moment(new Date());
         var diffDuration = moment.duration(todaysdate.diff(dateofbirth));
         return {
           ...state,

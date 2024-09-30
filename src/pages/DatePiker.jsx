@@ -30,7 +30,8 @@ export default function DatePikerComponent() {
 })
   
   setInterval(() => {
-    dispatch({type: 'DAYTOBRITH'})
+    dispatch({ type: 'DAYTOBRITH' })
+    dispatch({type: 'CALCULATE_AGE'})
   }, 1000);
  
   
@@ -48,19 +49,25 @@ export default function DatePikerComponent() {
               
               return props
             }} 
-           editable='false'
+            editable='false'
+           minDate={new DateObject({ calendar: persian }).set("year",1300)}
            maxDate={new DateObject({ calendar: persian }).set("date", (state.today - 86_400_000))}
            inputClass="bg-gray-100 text-gray-800 w-52 md:w-72 h-12 border-none rounded-2xl p-4 transition"
            value={state.date}
            calendar={persian}
            locale={persian_fa}
            calendarPosition="bottom-center"
-           onChange={(date)=>dispatch({type: 'CHANGE',date} )}
+            onChange={(date, { input, isTyping }) => {
+              if(isTyping) return false
+              console.log(state);
+              setIsShow(false)
+              dispatch({ type: 'CHANGE', date })
+          }}
            />
           <button
-            disabled={!state.isValid}
+            disabled={isshow}
             className=" item-center font-danaDemiBold text-sm lg:text-base bg-gradient-to-r text-white from-blue-500 to-blue-700 hover:bg-blue-800 hover:-translate-y-1 w-52 md:w-72 h-12 rounded-2xl transition-all duration-300" 
-            onClick={(date) => {
+            onClick={() => {
               setIsShow(true)
               return dispatch({type: 'CALCULATE_AGE'})
             }}
