@@ -24,19 +24,19 @@ function DayToBrithCom({dayToBrith}) {
           {dayToBrith?.hours}
         </div>
 
-        <span className=" shadow-normal text-pink-600 text-xl">:</span>
+        <span className=" shadow-normal text-pink-600 text-xl">_</span>
 
         <div className=" shadow-normal text-white text-base h-20 w-20 flex items-center justify-center bg-pink-700 rounded-lg ">
           {dayToBrith?.days}
         </div>
 
-        <span className=" shadow-normal text-pink-600 text-xl">:</span>
+        <span className=" shadow-normal text-pink-600 text-xl">/</span>
 
         <div className=" shadow-normal text-white text-base h-20 w-20 flex items-center justify-center bg-pink-700 rounded-lg ">
           {dayToBrith?.months}
         </div>
 
-        <span className=" shadow-normal text-pink-600 text-xl">:</span>
+        <span className=" shadow-normal text-pink-600 text-xl">/</span>
 
         <div className=" shadow-normal text-white text-base h-20 w-20 flex items-center justify-center bg-pink-700 rounded-lg ">
           {dayToBrith.years? dayToBrith.years :'0'}  
