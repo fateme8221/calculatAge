@@ -6,11 +6,15 @@ import gregorian_fa from "react-date-object/locales/gregorian_fa";
 import { DateObject } from "react-multi-date-picker";
 
 export const reducerHandel = (state, action) => {
-    switch (action.type) {
+  switch (action.type) {
+ 
       case 'CHANGE': {
-        console.log(new Date(action.date) );     
+        let validt = (action.date == null) ? false : true
+        console.log(validt)
+        console.log(action.date)   
         return {
           ...state,
+          isvalid:validt,
           birthDay:new DateObject(action.date),
           gregorian: new DateObject(action.date).convert(gregorian, gregorian_fa),
          }
