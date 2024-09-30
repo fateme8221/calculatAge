@@ -18,7 +18,7 @@ export const reducerHandel = (state, action) => {
       case 'CALCULATE_AGE': {
         let dateofbirth = moment(new Date(state.birthDay));
         let todaysdate = moment(new Date());
-        var diffDuration = moment.duration(todaysdate.diff(dateofbirth));
+        let diffDuration = moment.duration(todaysdate.diff(dateofbirth));
         return {
           ...state,
           userAge: {
