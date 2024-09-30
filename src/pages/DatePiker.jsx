@@ -57,8 +57,7 @@ export default function DatePikerComponent() {
            calendar={persian}
            locale={persian_fa}
            calendarPosition="bottom-center"
-            onChange={(date, { input, isTyping }) => {
-              console.log(state);
+            onChange={(date) => {
               setIsShow(false)
               dispatch({ type: 'CHANGE', date })
           }}
@@ -80,7 +79,7 @@ export default function DatePikerComponent() {
         <DatePassCom userAge={state.userAge}/>
         <div className="font-danaDemiBold flex flex-col gap-2.5 mt-6">
           <span className="text-blue-900 text-sm lg:text-lg">تاریخ تولد </span>
-          <BrithDatePersian birthDay={state.birthDay} />
+          <BrithDatePersian birthDay={state.birthDay}/>
           <BrithDategregorian gregorian={state.gregorian}/>
         </div>
         <div>

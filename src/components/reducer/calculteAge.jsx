@@ -9,9 +9,7 @@ export const reducerHandel = (state, action) => {
   switch (action.type) {
  
       case 'CHANGE': {
-        let validt = (action.date == null) ? false : true
-        console.log(validt)
-        console.log(action.date)   
+        let validt = (action.date == null) ? false : true  
         return {
           ...state,
           isvalid:validt,
@@ -19,30 +17,34 @@ export const reducerHandel = (state, action) => {
           gregorian: new DateObject(action.date).convert(gregorian, gregorian_fa),
          }
       }
-      case 'CALCULATE_AGE': {
-        let dateofbirth = moment(new Date(state.birthDay));
-        let todaysdate = moment(new Date());
-        let diffDuration = moment.duration(todaysdate.diff(dateofbirth));
+      case 'CALCULATE_AGE': {  
+        var now  = new Date();
+        var then = new Date(state.birthDay); 
+        var ms = moment(now,"DD/MM/YYYY HH:mm:ss").add(1, 'days').diff(moment(then,"DD/MM/YYYY HH:mm:ss").startOf('day'));
+        var d = moment.duration(ms); 
         return {
           ...state,
           userAge: {
-            years: diffDuration.years(),
-            months: diffDuration.months(),
-            days: diffDuration.days(),
-            hours: diffDuration.hours(),
-            minutes: diffDuration.minutes(),
-            seconds: diffDuration.seconds(),
+            years: d.years(),
+            months: d.months(),
+            days: d.days(),
+            hours: d.hours(),
+            minutes: d.minutes(),
+            seconds: d.seconds(),
           }
         }
       }
         case 'DAYTOBRITH' : {
-        let today = new Date()
-        let birthDay= new Date(state.birthDay)
-          let dayToBrith = new Date(today.getFullYear(), birthDay.getMonth(), birthDay.getDate());
-        
+          let today = new Date(new Date().getTime() + (3_600_000 *24))
+          let birthDay= new Date(state.birthDay)
+          let dayToBrith = new Date(today.getFullYear(), birthDay.getMonth() , birthDay.getDate());
+          
+          
           today > dayToBrith &&  
           dayToBrith.setFullYear(today.getFullYear() + 1);
-          
+          today == dayToBrith  &&  
+          dayToBrith.setFullYear(today.getFullYear() + 1);
+      
           let time = dayToBrith - today;
 
           let seconds = moment.duration(time).seconds() ||0;
