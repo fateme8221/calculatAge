@@ -39,14 +39,14 @@ export const reducerHandel = (state, action) => {
           today > dayToBrith &&  
           dayToBrith.setFullYear(today.getFullYear() + 1);
           
-          var time = dayToBrith - today;
+          let time = dayToBrith - today;
 
-          var seconds = moment.duration(time).seconds() ||0;
-          var minutes = moment.duration(time).minutes() ||0;
-          var hours = moment.duration(time).hours() || 0;
-          var days = moment.duration(time).days() || 0;
-          var months = moment.duration(time).months() || 0;
-          var years = moment.duration(time).years() || 0;
+          let seconds = moment.duration(time).seconds() ||0;
+          let minutes = moment.duration(time).minutes() ||0;
+          let hours = moment.duration(time).hours() || 0;
+          let days = moment.duration(time).days() || 0;
+          let months = moment.duration(time).months() || 0;
+          let years = moment.duration(time).years() || 0;
           return {
           ...state,
             dayToBrith: { seconds, minutes, hours, days, months, years }
