@@ -18,19 +18,19 @@ export const reducerHandel = (state, action) => {
          }
       }
       case 'CALCULATE_AGE': {  
-        let now  = new Date();
-        let then = new Date(state.birthDay); 
-        let ms = moment(now,"DD/MM/YYYY HH:mm:ss").add(1, 'days').diff(moment(then,"DD/MM/YYYY HH:mm:ss").startOf('day'));
-        let d = moment.duration(ms); 
+        let today  = new Date();
+        let birthDay = new Date(state.birthDay); 
+        let diffrent = moment(today,"DD/MM/YYYY HH:mm:ss").add(1, 'days').diff(moment(birthDay,"DD/MM/YYYY HH:mm:ss").startOf('day'));
+        let date = moment.duration(diffrent); 
         return {
           ...state,
           userAge: {
-            years: d.years(),
-            months: d.months(),
-            days: d.days(),
-            hours: d.hours(),
-            minutes: d.minutes(),
-            seconds: d.seconds(),
+            years: date.years(),
+            months: date.months(),
+            days: date.days(),
+            hours: date.hours(),
+            minutes: date.minutes(),
+            seconds: date.seconds(),
           }
         }
       }
@@ -45,14 +45,14 @@ export const reducerHandel = (state, action) => {
           today == dayToBrith  &&  
           dayToBrith.setFullYear(today.getFullYear() + 1);
       
-          let time = dayToBrith - today;
+          let date = dayToBrith - today;
 
-          let seconds = moment.duration(time).seconds() ||0;
-          let minutes = moment.duration(time).minutes() ||0;
-          let hours = moment.duration(time).hours() || 0;
-          let days = moment.duration(time).days() || 0;
-          let months = moment.duration(time).months() || 0;
-          let years = moment.duration(time).years() || 0;
+          let seconds = moment.duration(date).seconds() ||0;
+          let minutes = moment.duration(date).minutes() ||0;
+          let hours = moment.duration(date).hours() || 0;
+          let days = moment.duration(date).days() || 0;
+          let months = moment.duration(date).months() || 0;
+          let years = moment.duration(date).years() || 0;
           return {
           ...state,
             dayToBrith: { seconds, minutes, hours, days, months, years }
