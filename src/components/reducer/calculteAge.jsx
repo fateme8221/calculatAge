@@ -18,9 +18,10 @@ export const reducerHandel = (state, action) => {
          }
       }
       case 'CALCULATE_AGE': {  
-        let today  = new Date();
+        let today  = new Date(new Date().getTime() + (3_600_000 *24));
         let birthDay = new Date(state.birthDay); 
-        let diffrent = moment(today,"DD/MM/YYYY HH:mm:ss").add(1, 'days').diff(moment(birthDay,"DD/MM/YYYY HH:mm:ss").startOf('day'));
+        let diffrent = moment(today,"DD/MM/YYYY HH:mm:ss").diff(moment(birthDay,"DD/MM/YYYY HH:mm:ss").startOf('day'));
+        //let diffrent = moment(today,"DD/MM/YYYY HH:mm:ss").add(1, 'days').diff(moment(birthDay,"DD/MM/YYYY HH:mm:ss").startOf('day'));
         let date = moment.duration(diffrent); 
         return {
           ...state,
